@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/MiniLzoSharp/MiniLzoSharp.csproj" />
+  <Project Path="tests/MiniLzoSharp.Tests/MiniLzoSharp.Tests.csproj" />
+  <Project Path="benchmarks/MiniLzoSharp.Benchmarks/MiniLzoSharp.Benchmarks.csproj" />
+</Solution>

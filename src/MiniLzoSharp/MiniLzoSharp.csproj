@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- The hot loops use System.Runtime.CompilerServices.Unsafe for unaligned word-sized
+         access after explicit bounds validation; the C# `unsafe` keyword (raw pointers)
+         is never needed. -->
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <!-- Primary target platform. The code is portable managed IL (it also runs on AnyCPU
+         and arm64), but it is written and benchmarked for x64. -->
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64;AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>MiniLzoSharp</PackageId>
+    <Description>
+      A managed C# implementation of the MiniLZO (LZO1X-1) real-time compression codec,
+      derived from the LZO library by Markus F.X.J. Oberhumer
+      (https://www.oberhumer.com/opensource/lzo/). Produces and consumes raw LZO1X blocks
+      interoperable with the upstream C implementation.
+    </Description>
+    <Version>1.0.0</Version>
+    <Authors>Alyx Dallagiacomo</Authors>
+    <Copyright>C# implementation Copyright (c) 2026 Alyx Dallagiacomo. Derived from the LZO library, Copyright (C) 1996-2017 Markus Franz Xaver Johannes Oberhumer.</Copyright>
+    <PackageLicenseExpression>GPL-2.0-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://www.oberhumer.com/opensource/lzo/</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="MiniLzoSharp.Tests" />
+    <InternalsVisibleTo Include="MiniLzoSharp.Benchmarks" />
+  </ItemGroup>
+
+</Project>

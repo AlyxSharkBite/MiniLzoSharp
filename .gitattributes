@@ -1,0 +1,6 @@
+# Normalise line endings in the repository; check out native.
+* text=auto
+
+# Shell scripts must keep LF in the working tree: CRLF breaks the shebang and `sh` on
+# Linux and macOS, which is where CI builds the upstream reference harness.
+*.sh text eol=lf
